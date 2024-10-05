@@ -16,6 +16,7 @@ torch = "^2.4.1"
 nltk = "^3.9.1"
 beautifulsoup4 = "^4.12.3"
 selenium = "^4.25.0"
+sqlalchemy = "^2.0.35"
 
 
 [build-system]
