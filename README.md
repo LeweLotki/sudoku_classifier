@@ -1,4 +1,4 @@
-# Project: Puzzle Difficulty Classification
+# Puzzle Difficulty Classification
 
 ## Overview
 
