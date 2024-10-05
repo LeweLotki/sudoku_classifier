@@ -2,6 +2,7 @@ import sys
 
 from services.database import initialize_database
 from services.parser import initialize_parser
+from services.scraper.scraper import Scraper
 
 def main():
 
@@ -9,7 +10,8 @@ def main():
     args, parser = initialize_parser()
 
     if args.scrape:
-        pass
+        scraper = Scraper()
+        scraper.scrape_puzzles(number_of_puzzles=10000)
     elif args.analysis:
         pass
     elif args.train:
