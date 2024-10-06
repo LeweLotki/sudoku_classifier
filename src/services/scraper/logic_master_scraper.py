@@ -19,8 +19,7 @@ class LogicMasterScraper:
         self.soup = BeautifulSoup(response.text, 'html.parser')
 
         return {
-            'logic_master_ref': url,
-            'sudoku_pad_ref': self.__get_sudoku_pad_ref(),
+            'rules': self.__get_rules(),
             'difficulty': self.__get_difficulty()
         }
 
@@ -38,3 +37,10 @@ class LogicMasterScraper:
             difficulty = difficulty_row.find('img').get('title')
         return difficulty or 'Unknown'
 
+    def __get_rules(self) -> str:
+        rules_section = self.soup.find('div', class_='rp_html')
+        if not rules_section:
+            return 'No rules available'
+
+        rules = ' '.join([p.get_text(strip=True) for p in rules_section.find_all('p')])
+        return rules

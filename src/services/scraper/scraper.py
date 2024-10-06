@@ -29,9 +29,9 @@ class Scraper:
             
             try:
                 logic_master_data = self.logic_master_scraper.scrape_url(url=puzzle_url)
-                if 'sudoku_pad_ref' in logic_master_data and logic_master_data['sudoku_pad_ref']:
-                    sudoku_pad_data = self.sudokupad_scraper.scrape_url(logic_master_data['sudoku_pad_ref'])
-                    logic_master_data['rules'] = sudoku_pad_data.get('rules', 'No rules available')
+                # if 'sudoku_pad_ref' in logic_master_data and logic_master_data['sudoku_pad_ref']:
+                #    sudoku_pad_data = self.sudokupad_scraper.scrape_url(logic_master_data['sudoku_pad_ref'])
+                #    logic_master_data['rules'] = sudoku_pad_data.get('rules', 'No rules available')
                 
                 print(self.__is_data_complete(logic_master_data))
                 if self.__is_data_complete(logic_master_data):
