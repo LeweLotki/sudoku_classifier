@@ -3,3 +3,4 @@
 __pycache__
 *lock
 *vim
+.ipynb_checkpoints
