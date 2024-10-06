@@ -1,9 +1,12 @@
 import string
 
-def alphanumeric_code_generator():
+def alphanumeric_code_generator(start_code: str = '000000'):
     characters = string.digits + string.ascii_uppercase
 
-    current_code = ['0'] * 6
+    if len(start_code) != 6 or any(c not in characters for c in start_code):
+        raise ValueError("The start code must be a 6-character alphanumeric string containing only 0-9 and A-Z.")
+
+    current_code = list(start_code)
 
     while True:
         yield ''.join(current_code)

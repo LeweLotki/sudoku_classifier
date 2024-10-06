@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from .logic_master_scraper import LogicMasterScraper
-from .sudokupad_scraper import SudokupadScraper
+# from .sudokupad_scraper import SudokupadScraper
 from .code_generator import alphanumeric_code_generator
 
 from sqlalchemy.orm import Session
@@ -19,8 +19,8 @@ class Scraper:
         logging.basicConfig(filename='services.log', level=logging.INFO)
         self.logger = logging.getLogger(__name__)
         self.logic_master_scraper = LogicMasterScraper()
-        self.sudokupad_scraper = SudokupadScraper()
-        self.code_generator = alphanumeric_code_generator()  
+        # self.sudokupad_scraper = SudokupadScraper()
+        self.code_generator = alphanumeric_code_generator('000000')  
 
     def scrape_puzzles(self, number_of_puzzles: int = 100) -> None:
         for _ in range(number_of_puzzles):
