@@ -2,7 +2,9 @@ import sys
 
 from services.database import initialize_database
 from services.parser import initialize_parser
+
 from services.scraper.scraper import Scraper
+from classifier.training_loop import train
 
 def main():
 
