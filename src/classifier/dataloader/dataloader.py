@@ -14,8 +14,9 @@ def split_dataset(dataset, train_ratio=0.7, val_ratio=0.15):
     return train_dataset, val_dataset, test_dataset
 
 
-def create_dataloaders(csv_path, batch_size=32, max_features=10000, train_ratio=0.7, val_ratio=0.15, shuffle=True):
-    dataset = PuzzleDataset(csv_path, max_features=max_features)
+def create_dataloaders(csv_path, vectorization='tf-idf',batch_size=32, max_features=10000, train_ratio=0.7, val_ratio=0.15, shuffle=True):
+    dataset = PuzzleDataset(csv_path, max_features=max_features,
+    vectorization=vectorization)
 
     train_dataset, val_dataset, test_dataset = split_dataset(dataset, train_ratio=train_ratio, val_ratio=val_ratio)
 
