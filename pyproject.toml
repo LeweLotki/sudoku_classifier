@@ -19,6 +19,9 @@ selenium = "^4.25.0"
 sqlalchemy = "^2.0.35"
 webdriver-manager = "^4.0.2"
 langdetect = "^1.0.9"
+seaborn = "^0.13.2"
+imblearn = "^0.0"
+mord = "^0.7"
 
 
 [build-system]

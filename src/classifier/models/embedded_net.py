@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class EmbeddingConvolutionalNetwork(nn.Module):
-    def __init__(self, vocab_size, embedding_dim, sequence_length, num_classes=5):
+    def __init__(self, vocab_size, embedding_dim, sequence_length, num_classes=3):
         super(EmbeddingConvolutionalNetwork, self).__init__()
 
         self.embedding = nn.Embedding(num_embeddings=vocab_size, embedding_dim=embedding_dim, padding_idx=0)

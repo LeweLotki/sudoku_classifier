@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class ConvolutionalNetwork(nn.Module):
-    def __init__(self, input_features, num_classes=5):
+    def __init__(self, input_features, num_classes=3):
         super(ConvolutionalNetwork, self).__init__()
 
         self.conv1 = nn.Conv1d(in_channels=1, out_channels=32, kernel_size=3, stride=1, padding=1)  

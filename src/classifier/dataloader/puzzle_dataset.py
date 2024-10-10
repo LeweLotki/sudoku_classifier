@@ -9,6 +9,8 @@ class PuzzleDataset(Dataset):
     def __init__(self, csv_path, max_features=10000, vectorization='tf-idf', max_length=100):
         df = pd.read_csv(csv_path)
 
+        df['target'] = df['target'].replace({1: 1, 2: 1, 3: 2, 4: 3, 5: 3})
+
         self.vectorization = vectorization
         self.max_length = max_length
 
