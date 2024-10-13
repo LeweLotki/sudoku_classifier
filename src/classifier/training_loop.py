@@ -22,7 +22,7 @@ def train(model, criterion, optimizer, data_loader, epochs):
             progress_bar.set_postfix(loss=f"{loss.item():.4f}")
 
 def evaluate(model, criterion, data_loader):
-    model.eval()
+    model.eval() 
     total_loss = 0.0
     correct = 0
     total = 0
@@ -30,21 +30,27 @@ def evaluate(model, criterion, data_loader):
     y_prob = []
     y_true = []
 
-    with torch.no_grad():
+    with torch.no_grad(): 
         for features, target in data_loader:
             output = model(features)
             loss = criterion(output, target)
             total_loss += loss.item()
 
-            probs = torch.softmax(output, dim=1)  # Use softmax for multi-class
-            preds = torch.argmax(probs, dim=1)    # Get the predicted class
-            
+            _, preds = torch.max(output, 1)
+
+            probs = torch.softmax(output, dim=1)[:, 1]  
+
+            if target.ndim > 1:  
+                true_labels = torch.argmax(target, dim=1)
+            else:  
+                true_labels = target
+
             y_pred.extend(preds.cpu().numpy())
             y_prob.extend(probs.cpu().numpy())
-            y_true.extend(torch.argmax(target, dim=1).cpu().numpy())  # Assuming target is one-hot encoded
+            y_true.extend(true_labels.cpu().numpy())
 
-            correct += (preds == torch.argmax(target, dim=1)).sum().item()
-            total += target.size(0)
+            correct += (preds == true_labels).sum().item()
+            total += true_labels.size(0)
 
     average_loss = total_loss / len(data_loader)
     accuracy = 100 * correct / total
