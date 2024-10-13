@@ -8,6 +8,8 @@ class Puzzle(Base):
     code = Column(String, index=True)
     rules = Column(String, index=True)
     difficulty = Column(Integer)
+    types = Column(String, nullable=True)   
+    comments = Column(String, nullable=True)
 
     def __repr__(self):
         return f"<Puzzle(id={self.id}, code={self.code}, rules={self.rules}, difficulty={self.difficulty})>"

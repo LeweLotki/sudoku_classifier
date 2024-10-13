@@ -13,7 +13,7 @@ def main():
 
     if args.scrape:
         scraper = Scraper()
-        scraper.scrape_puzzles(number_of_puzzles=10000)
+        scraper.scrape_puzzles(number_of_puzzles=30000)
     elif args.analysis:
         pass
     elif args.train:

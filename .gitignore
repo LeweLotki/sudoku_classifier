@@ -5,3 +5,4 @@ __pycache__
 *vim
 .ipynb_checkpoints
 data/data.csv
+*.db
